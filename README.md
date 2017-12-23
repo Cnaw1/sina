@@ -16,7 +16,7 @@
 # نصب
 
 ```sh
-git clone https://github.com/titanteams/tabchi
+git clone https://github.com/Cnaw1/sina
 cd tabchi
 chmod +x bot
 ./bot install
