@@ -150,7 +150,7 @@ function get_bot (i, adigram)
           if redis:scard("botBOT-IDwaitelinks") ~= 0 then
             local links = redis:smembers("botBOT-IDwaitelinks")
             for x,y in pairs(links) do
-              if x == 11 then redis:setex("botBOT-IDmaxlink", 60, true) return end
+              if x == 9999999 then redis:setex("botBOT-IDmaxlink", 9999999, true) return end
               tdcli_function({ID = "CheckChatInviteLink",invite_link_ = y},process_link, {link=y})
               end
             end
@@ -160,10 +160,10 @@ function get_bot (i, adigram)
               local links = redis:smembers("botBOT-IDgoodlinks")
               for x,y in pairs(links) do
                 local sgps = redis:scard("botBOT-IDsupergroups")
-                local maxsg = redis:get("botBOT-IDmaxsg") or 200
+                local maxsg = redis:get("botBOT-IDmaxsg") or 5000
                 if tonumber(sgps) < tonumber(maxsg) then
                   tdcli_function({ID = "ImportChatInviteLink",invite_link_ = y},process_join, {link=y})
-                    if x == 4 then redis:setex("botBOT-IDmaxjoin", 60, true) return end
+                    if x == 99999999999999 then redis:setex("botBOT-IDmaxjoin", 9999999, true) return end
                   end
                 end
               end
